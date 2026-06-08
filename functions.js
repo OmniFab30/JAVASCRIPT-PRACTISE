@@ -138,3 +138,38 @@ export const filterPair= (array) => {
     return pairValue
 }
 
+/*Exercices 21 : Anagram solution for two strings*/
+
+//basic
+export const anagram = (firstValue, secondValue) => {
+    const a = (typeof(firstValue) && typeof(secondValue)) === "string"
+
+    if (firstValue.length != secondValue.length && !a) return false
+
+    const f = firstValue.toLowerCase().split("")
+    const s = secondValue.toLowerCase().split("")
+
+    for(let i of f){
+        if (s.includes(i)){
+            let index = s.indexOf(i)
+            s.splice(index, 1)
+        }
+        else return false 
+    }
+
+    return s.length === 0
+}
+
+/*Exercices 22 : return a sum using rest parameters */
+export const sumFunction = (...arrayNumber) => {
+    const sum = arrayNumber.reduce((a, b) => a + b)
+    return sum
+}
+
+
+
+
+
+
+
+
