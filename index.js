@@ -1,4 +1,6 @@
 import * as functions from "./functions.js"
+import * as callbacks from "./callbacks.js"
+
 
 console.log(functions.greeting())
 console.log(functions.fullname("Aina", "Fabiano"))
@@ -26,3 +28,5 @@ console.log(functions.count([1,2,3,1,1,5,1], 1))
 console.log(functions.filterPair([45,89,45,88,67,952]))
 console.log(functions.anagram("fabiano", "onaibaf"))
 console.log(functions.sumFunction(1,2,5,3,86))
+
+
