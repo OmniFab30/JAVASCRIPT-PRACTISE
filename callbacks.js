@@ -1,85 +1,111 @@
-/*Exercice 01: Callback simple */
+// /*Exercice 01: Callback simple */
 
-//basic
-function displayMessage(firstname){
-    console.log(`Hello, ${firstname}`)
-}
+// //basic
+// function displayMessage(firstname){
+//     console.log(`Hello, ${firstname}`)
+// }
 
-const greeting = (firstname, cb) => {
-    cb(firstname)
-}
+// const greeting = (firstname, cb) => {
+//     cb(firstname)
+// }
 
-greeting("Fabiano", displayMessage)
+// greeting("Fabiano", displayMessage)
 
-//Callback anonym
-const dynamicGreeting = (firstname, cb) => cb(firstname)
-dynamicGreeting("Aina Fabiano", (firstname) => {
-    console.log(`Hello, ${firstname}`)
-})
+// //Callback anonym
+// const dynamicGreeting = (firstname, cb) => cb(firstname)
+// dynamicGreeting("Aina Fabiano", (firstname) => {
+//     console.log(`Hello, ${firstname}`)
+// })
 
 
-/*Exercice 02: sum of two numbers using callbacks*/
+// /*Exercice 02: sum of two numbers using callbacks*/
 
-//basic
-const displaySum = (sum) => {
-    console.log(sum)
-}
+// //basic
+// const displaySum = (sum) => {
+//     console.log(sum)
+// }
 
-const sum = (a, b, cb) => {
-    const sum = a + b
-    cb(sum)
-}
+// const sum = (a, b, cb) => {
+//     const sum = a + b
+//     cb(sum)
+// }
 
-sum(6,5,displaySum)
+// sum(6,5,displaySum)
 
-//using callback anonym
-const dynamicSum = (a, b, cb) => {
-    const sum = a + b
-    cb(a, b, sum)
-}
+// //using callback anonym
+// const dynamicSum = (a, b, cb) => {
+//     const sum = a + b
+//     cb(a, b, sum)
+// }
 
-dynamicSum(2,3,(a, b, sumResult) => {
-    console.log(`${a} + ${b} = ${sumResult}`)
-})
+// dynamicSum(2,3,(a, b, sumResult) => {
+//     console.log(`${a} + ${b} = ${sumResult}`)
+// })
 
-/*Exercice 03: browse each element in array and display using callbacks*/
-const browseArray = (array, cb) => {
-    for(let i of array) cb(i)
-}
+// /*Exercice 03: browse each element in array and display using callbacks*/
+// const browseArray = (array, cb) => {
+//     for(let i of array) cb(i)
+// }
 
-browseArray([1,2,3], (element) => {
-    console.log(element)
-})
+// browseArray([1,2,3], (element) => {
+//     console.log(element)
+// })
 
-/*Exercice 04: changes each element of the array*/
-const changeValue = (arrayNumber, cb) => {
-    const finalValue = []
-    for(let i of arrayNumber) finalValue.push(cb(i))
-    console.log(finalValue)
-}
+// /*Exercice 04: changes each element of the array*/
+// const changeValue = (arrayNumber, cb) => {
+//     const finalValue = []
+//     for(let i of arrayNumber) finalValue.push(cb(i))
+//     console.log(finalValue)
+// }
 
-changeValue([2,4,5,6,7], (a) => a * 2)
+// changeValue([2,4,5,6,7], (a) => a * 2)
 
-/*Exercice 05: setTimeout simple*/
-console.log("Start")
-setTimeout(() => {
-    console.log("Wait...")
-}, 1000)
-setTimeout(() => {
-    console.log("End")
-}, 2000)
+// /*Exercice 05: setTimeout simple*/
+// console.log("Start")
+// setTimeout(() => {
+//     console.log("Wait...")
+// }, 1000)
+// setTimeout(() => {
+//     console.log("End")
+// }, 2000)
 
-//using callback
-const callback = () => {
-    console.log("Start")
+// //using callback
+// const callback = () => {
+//     console.log("Start")
+//     setTimeout(() => {
+//         console.log("Wait...")
+//         setTimeout(() => {
+//             console.log("End")
+//         }, 1000)
+//     }, 1000)
+// }
+
+// callback()
+
+/*Exercice 06: Download Similation*/
+const dSimulation = (cb) => {
+    console.log("Downloading...")
     setTimeout(() => {
-        console.log("Wait...")
-        setTimeout(() => {
-            console.log("End")
-        }, 1000)
-    }, 1000)
+        cb()
+    }, 3000)
 }
 
-callback()
+dSimulation(() => {
+    console.log("Downloaded File !")
+})
 
+/*Exercice 07: verify age using callback */
+const verifyAge = (age, successCallback, errorCallback) => {
+    if(age < 0 || age > 120){
+        console.log("Age Invalid !!!")
+    } 
+    (age >= 18) ? successCallback() : errorCallback()
+}
 
+verifyAge(
+    19,
+    () => console.log("Authorized access"),
+    () => console.log("Denied Access")
+)
+
+/*Exercice 08: control system' s Restaurant */

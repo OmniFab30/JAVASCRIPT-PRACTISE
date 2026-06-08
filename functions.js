@@ -166,10 +166,3 @@ export const sumFunction = (...arrayNumber) => {
     return sum
 }
 
-
-
-
-
-
-
-
