@@ -1,6 +1,6 @@
 import * as functions from "./functions.js"
 import * as callbacks from "./callbacks.js"
-
+import * as arrays from "./arrays.js"
 
 console.log(functions.greeting())
 console.log(functions.fullname("Aina", "Fabiano"))
