@@ -108,4 +108,51 @@ verifyAge(
     () => console.log("Denied Access")
 )
 
-/*Exercice 08: control system' s Restaurant */
+/*Exercice 08: commande system' s Restaurant */
+const getCommande = (callback) => {
+    console.log("Commande Accepted")
+    setTimeout(() => {
+        callback()
+    }, 1000)
+}
+
+const preparCommande = (callback) => {
+    console.log("In preparation...")
+    setTimeout(() => {
+        callback()
+    }, 1000)
+}
+
+const serveCommande = (callback) => {
+    console.log("Commande served")
+}
+
+getCommande(() => {
+    preparCommande(() => {
+        serveCommande()
+    })
+})
+
+/*Exercice 09: game of score: display message after 1 second*/
+const play = (score, succesCallback, failCallback) => {
+    (score < 0) ? console.log("Score Invalid") : (score > 50) ? succesCallback(score) : failCallback(score)
+}
+
+play(
+    80,
+    (score) => {
+        setTimeout(() => {console.log(`Congratulations !!! you earn ${score} points`)}, 1000)
+    }, 
+    (score) => {
+        setTimeout(() => {console.log(`Game over !!! you earn only ${score} points`)}, 1000)
+    }
+)
+
+/*Exercice 10: Simulation of forEach method*/
+const forEachSimulation = (arrayNumber, callback) => {
+    for(let i of arrayNumber) callback(i)
+}
+const integer = [12,88,66,223,845,14]
+forEachSimulation(integer, (i) => {
+    console.log(i)
+})
