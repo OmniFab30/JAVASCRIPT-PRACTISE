@@ -2,7 +2,7 @@
  const person = {
     firstname: "Fabiano",
     age: 19,
-    city: "Anosizato Est I",
+    neighborhood: "Anosizato Est I",
     establishment: "ISPM"
 }
 console.log(person)
@@ -25,7 +25,7 @@ person.age = 25 //first option
 person["firstname"] = "Aina Fabiano" //second option
 
 //Exercice 04: delete a property
-delete person.city //first option
+delete person.neighborhood //first option
 
 const {establishment,...newPerson} = person //using spread operator
 console.log(newPerson)
@@ -109,3 +109,42 @@ bankingCount.pull(10000)
 console.log(bankingCount.balance)
 
 //Exercice 11: add display amount method
+bankingCount.displayAmount = function(){
+    console.log(`Your balance : ${this.balance} Ar`)
+}
+bankingCount.displayAmount()
+
+//Exercice 12: nested object
+const student = {
+  firstname: "Paul",
+  address: {
+    city: "Antananarivo",
+    neighborhood: "Analakely"
+  }
+};
+
+//display city values
+console.log(student.address.city) 
+console.log(student.address["city"])
+
+//Exercice 13: add postal code inside the nested object
+student.address.postalCode = 101
+student.address["postalCode"] = 101
+console.log(student)
+
+//Exercice 14: display all properties in address
+for (let property of Object.keys(student.address)) 
+    console.log(`${property} : ${student.address[property]}`)
+
+//Exercice 15: table of objects
+const undergraduate = [
+  {firstname: "Jean", note: 15 },
+  {firstname: "Paul", note: 12 },
+  {firstname: "Marie", note: 18 }
+];
+
+//display all firstname
+for(let i in undergraduate) 
+    console.log(undergraduate[i].firstname)
+
+//Exercice 16: Displays only students with a grade of 15 or higher.
