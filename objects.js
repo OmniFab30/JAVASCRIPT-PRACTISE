@@ -141,10 +141,85 @@ const undergraduate = [
   {firstname: "Jean", note: 15 },
   {firstname: "Paul", note: 12 },
   {firstname: "Marie", note: 18 }
-];
+]
 
 //display all firstname
 for(let i in undergraduate) 
     console.log(undergraduate[i].firstname)
 
 //Exercice 16: Displays only students with a grade of 15 or higher.
+//using for...in
+//for(let i in undergraduate)
+    (undergraduate[i].note >= 15) && console.log(`${undergraduate[i].firstname} : ${undergraduate[i].note}`) 
+
+//using for...of and Object.values()
+for(let i of Object.values(undergraduate)) 
+(i.note >= 15) && console.log(`${i.firstname}: ${i.note}`)
+
+//Exercice 17: average of note
+//basic
+const averageNote = () => {
+    let sum = 0
+
+    for(let i in undergraduate){
+        sum += undergraduate[i].note
+    }
+
+    const average = (sum / undergraduate.length)
+    console.log(average)
+}
+
+averageNote()
+
+//Exercice 18: Find the student with the best grade.
+//basic
+const bestGrade = () => {
+    let bestNote = undergraduate[0].note
+    let bestStudent = undergraduate[0].firstname
+
+    for(let i of undergraduate){
+        if (i.note >= bestNote) {
+            bestNote = i.note
+            bestStudent = i.firstname
+        }
+    }
+
+    console.log(`Undergraduate with the best grade is ${bestStudent} : ${bestNote}`)
+}
+
+bestGrade()
+
+//Exercice 19: Destructuring
+const book = {
+  title: "Modern JavaScript",
+  author: "Dupont",
+  pages: 350
+}
+// Retrieves properties into variables using destructuring.
+const {title, author, pages} = book
+console.log(`${title} - ${author} - ${pages}`)
+
+//Exercice 20: Rename the variables
+const {title: bookTitle, author: bookAuthor, pages: pageNumber} = book
+console.log(`${bookTitle} - ${bookAuthor} - ${pageNumber}`)
+
+//Exercice 21: Copies a user object with the spread operator.
+const bookCopies = {...book}
+for(const[key, value] of Object.entries(bookCopies)){
+    console.log(`${key} : ${value}`)
+}
+
+//Exercice 22: Adds a property without modifying the original object.
+const addNewProperties = {...book, date: "10-02-26", category: "Roman"}
+for(const[key, value] of Object.entries(addNewProperties)){
+    console.log(`${key} : ${value}`)
+}
+
+//Exercice 23: merge two objects.
+const dictionnary = {
+    dictionnaryTitle: "Le petit Robert",
+    dictionnaryAuthor: "Robert"
+}
+
+const newObject = {...book, ...dictionnary}
+console.log(newObject)
