@@ -112,3 +112,53 @@ l1.showStatus()
 l2 = new Lamp("green", true)
 l2.turnOff()
 l2.showStatus()
+
+//Exercice 05: Mini-Calculator
+class Calculator{
+    a
+    b
+
+    constructor(a, b){
+        this.a = a
+        this.b = b
+    }
+
+    add(){
+        return this.a + this.b
+    }
+
+    subtract(){
+        return this.a - this.b
+    }
+
+    multiply(){
+        return this.a * this.b
+    }
+
+    divide(){
+        if(this.b == 0){
+            console.log("Calcul unsuccesfully")
+        }
+        return this.a / this.b
+    }
+}
+
+function displayResult(
+    a, 
+    b, 
+    addResult, 
+    subtractResult,
+    multiplyResult, 
+    divideResult
+){
+    console.log(`Calculate for: a = ${a} and b = ${b}`)
+    console.log(`\t==> ${a} + ${b} = ${addResult}`)
+    console.log(`\t==> ${a} - ${b} = ${subtractResult}`)
+    console.log(`\t==> ${a} * ${b} = ${multiplyResult}`)
+    console.log(`\t==> ${a} / ${b} = ${divideResult}`)
+}
+
+c1 = new Calculator(4,5)
+displayResult(c1.a, c1.b, c1.add(), c1.subtract(), c1.multiply(), c1.divide())
+c2 = new Calculator(26,14)
+displayResult(c2.a, c2.b, c1.add(), c2.subtract(), c2.multiply(), c2.divide())
