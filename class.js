@@ -48,3 +48,26 @@ pc3 = new Computer("Lenovo Legion 5 15IRX10 ", "Intel Core i7-13650HX", "32 Go D
 pc1.showSpecifications()
 pc2.showSpecifications()
 pc3.showSpecifications()
+
+//Exercice 03:
+class Rectangle{
+    width
+    height
+
+    constructor(width, height){
+        this.width = width
+        this.height = height
+    }
+
+    calculateArea(){
+        return this.width * this.height
+    }
+
+    calculatePerimeter(){
+        return (this.width + this.height) * 2
+    }
+}
+
+r1 = new Rectangle(5, 10)
+console.log(`Area value: ${r1.calculateArea()}`)
+console.log(`Perimeter value: ${r1.calculatePerimeter()}`)
