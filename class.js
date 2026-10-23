@@ -71,3 +71,44 @@ class Rectangle{
 r1 = new Rectangle(5, 10)
 console.log(`Area value: ${r1.calculateArea()}`)
 console.log(`Perimeter value: ${r1.calculatePerimeter()}`)
+
+//Exercice 04: Lamp state
+class Lamp{
+    color
+    isOn = false
+
+    constructor(color, isOn){
+        this.color = color
+        this.isOn = isOn
+    }
+
+    turnOn(){
+        if(this.isOn === false){
+            this.color = `No-${this.color}`
+            this.isOn = true
+        }
+        else console.log("The Lamp is already off")
+    }
+
+    turnOff(){
+        if(this.isOn === true){
+            this.color = `No-${this.color}`
+            this.isOn = false
+        }
+        else console.log("The Lamp is already on")
+    }
+
+    showStatus(){
+        console.log(`Lamp Status: 
+            ==> Color: ${this.color} 
+            ==> State: ${this.isOn}
+        `)
+    }
+}
+
+l1 = new Lamp("red", false)
+l1.turnOn()
+l1.showStatus()
+l2 = new Lamp("green", true)
+l2.turnOff()
+l2.showStatus()
