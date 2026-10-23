@@ -162,3 +162,44 @@ c1 = new Calculator(4,5)
 displayResult(c1.a, c1.b, c1.add(), c1.subtract(), c1.multiply(), c1.divide())
 c2 = new Calculator(26,14)
 displayResult(c2.a, c2.b, c1.add(), c2.subtract(), c2.multiply(), c2.divide())
+
+
+//Exercice 06: Stock Value
+
+class Product{
+    name
+    price
+    quantity
+
+    constructor(name, price, quantity){
+        this.name = name
+        this.price = price
+        this.quantity = quantity
+    }
+
+    calculateStockValue(){
+        return this.price * this.quantity
+    }
+}
+
+const products = [
+    p1 = new Product("Apple", 10, 5),
+    p2 = new Product("Pineapple", 25, 15),
+    p3 = new Product("Orange", 7, 9),
+    p4 = new Product("Banana", 4, 12),
+    p5 = new Product("Pear", 2, 20)
+]
+
+function displayStock(p){
+    console.log("\t=== STOCK VALUE ===")
+
+    for(i = 0; i < p.length; i++){
+        console.log(`\nProduct-${i}: 
+    Name: ${p[i].name}
+    Price: $${p[i].price}
+    Quantity: ${p[i].quantity} 
+    Stock Value: $${p[i].price * p[i].quantity}`)
+    }
+}
+
+displayStock(products)
